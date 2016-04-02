@@ -28,9 +28,18 @@ class DocsController < ApplicationController
   end
 
   def update
+    # - Checks if the document has been updated
+    if @doc.update(doc_params)
+      redirect_to @doc
+    else
+      # - If not, then render the edit page instead of redirect
+      render 'edit'
+    end
   end
 
   def destroy
+    @doc.destroy
+    redirect_to docs_path
   end
 
   private

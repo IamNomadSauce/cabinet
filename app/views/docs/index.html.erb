@@ -1,6 +1,10 @@
+<!-- Index page to show all documents -->
+
 <% @docs.each do |doc| %>
   <h2><%= link_to doc.title, doc %></h2>
   <p><%= time_ago_in_words(doc.created_at) %></p>
 
 
 <% end %>
+
+<%= link_to "Create New Document", new_doc_path %>
